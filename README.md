@@ -10,6 +10,7 @@ Ao finalizar o levantamento dos cenários e a automação, poste no github ou bi
 e cenários. Não se esqueça de deixar público e nos enviar o link.
 Especificação de Requisito
 O usuário deve realizar a autenticação no facebook.
+
 (https://developers.facebook.com/docs/facebook-login/access-tokens)
 O usuário deve postar uma mensagem na página desse mesmo usuário.
 (https://developers.facebook.com/docs/graph-api/reference/v3.0/user/feed)
@@ -26,44 +27,60 @@ O usuário deve postar uma mensagem na página desse mesmo usuário.
 Realizar uma alteração na mensagem postada acima.
 
 ### Montar ambiente:
-Intalar  Selenium WebDriver
+Intalar  Selenium WebDriver, TestNG, Utilização do SDK RestFB by Mark Allen
 ### Casos de teste:
 ### Pré-requisitos 
-Criar um APP no https://developers.facebook.com com todas as permissões e atribuir um usuário de teste para realizar as requisições.
+Criar um APP no https://developers.facebook.com com todas as permissões.
 
-##### 1 - Autenticação no facebook com sucesso
 
-- Acessar url   informando permissões do APP .
-Resultado: Sistema deverá direcionar para http://localhost e informar  e o token de acesso na URL do browser sendo salva num String para ser utilizada.
-##### 2 – Autenticação no facebook com todos os campos em branco
-- Acessar url   informando permissões do APP .
-Resultado: Sistema deverá direcionar para http://localhost e informar  e o token de acesso na URL do browser sendo salva num String para ser utilizada.
-Resultado: Sistema deverá exibir popup de autenticação do facebook de erro.
-##### 2 - Autenticação no facebook sem informar  email
-- Acessar url   informando permissões do APP .
+PASSED: ExtendsToken
+PASSED: FacebookAuthentication
+PASSED: LoginWithInvalidEmail
+PASSED: LoginWithInvalid__password
+PASSED: LoginWithInvalid_passwordAndUser
+PASSED: LoginWithaAllBlankFields
+PASSED: LoginWithoutEmail
+PASSED: LoginWithout_password
+PASSED: PostTimeLine
+
+##### 1 - ExtendsToken
+O teste case é responsavel por aumentar o tempo de expiração do token 
+Resultado: O teste retorna o novo token ea data de expiração
+##### 2 – FacebookAuthentication
+O teste case é responsavel por Fazer a autenticação do facebook atravez da api.
+Resultado: O teste retorna o nome do usuario no console
+
+##### 2 - LoginWithInvalidEmail
+O Test case é responsavel por validar o login com um email invalido
 Resultado: Sistema deverá exibir popup de autenticação do facebook com erro.
-##### 3 - Autenticação no facebook com uma senha invalida
-- Acessar url   informando permissões do APP .
+
+##### 3 - LoginWithInvalid__password
+O Test case é responsavel por validar o login com uma senha  invalida
 Resultado: Sistema deverá exibir popup de autenticação do facebook com erro.
-##### 4 - Autenticação no facebook sem informar  invalido email
-- Acessar url   informando permissões do APP .
-Resultado: Sistema deverá exibir popup de autenticação do facebook com erro.
-##### 5 - Autenticação no facebook sem informar  email e senha
-- Acessar url   informando permissões do APP .
-Resultado: Sistema deverá exibir popup de autenticação do facebook com erro.
-##### 6 - Autenticação no facebook sem informar  senha
-- Acessar url   informando permissões do APP .
-Resultado: Sistema deverá exibir popup de autenticação do facebook com erro.
+
+##### 4 - LoginWithInvalid_passwordAndUser
+O Test case é responsavel por validar o login com um email e senha invalidos
+Resultado: Sistema deverá exibir popup de autenticação do facebook com erro..
+
+##### 5 - LoginWithaAllBlankFields
+O Test case é responsavel por validar o login com um email e senha em branco
+Resultado: Sistema deverá exibir popup de autenticação do facebook com erro..
+
+##### 6 - LoginWithoutEmail
+O Test case é responsavel por validar o login com um email  em branco
+Resultado: Sistema deverá exibir popup de autenticação do facebook com erro..
+
 ##### 7 – postar uma mensagem no time line com sucesso
-- Acessar url  informando permissões do APP .
-Resultado: Sistema deverá permitir a postagem de uma mensagem no time line do usuário.
+O Test case é responsavel por validar o login com um email e senha em branco
+Resultado: Sistema deverá exibir popup de autenticação do facebook com erro..
 
-##### 8 – Tentar postar uma mensagem no timeline com token invalido
-- Acessar url   informando permissões do APP .
-Resultado: Sistema devera mostrar uma messagem de retorno não permitindo a inserção da mensagem no timeline
-##### 9 – Atualizar a mensagem inserida anteriormente no caso 7
-- Acessar url   informando permissões do APP .
-Resultado: O sistema permitira atualizar a mensagem inserida.
+##### 8 – LoginWithout_password
+O Test case é responsavel por validar o login com uma senha em branco
+Resultado: Sistema deverá exibir popup de autenticação do facebook com erro..
+
+##### 9 – PostTimeLine
+O Test case é responsavel por inserir um post no time line porem se caso o facebook não aprovou no app não é possivel realizer esse teste
+
 
 
 
